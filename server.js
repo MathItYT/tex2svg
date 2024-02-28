@@ -3,7 +3,7 @@ const app = express();
 const fs = require('fs');
 const uuid = require('uuid');
 const child_process = require('child_process');
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const texFolder = 'tex';
 const cacheFile = 'cache.json';
