@@ -51,7 +51,7 @@ app.get('/api/tex2svg', (req, res) => {
     }
     fs.writeFileSync(texPath, content);
     try {
-        child_process.execSync(`latex -interaction=nonstopmode --shell-escape -halt-on-error --output-directory=${texFolder} ${texPath}`);
+        child_process.execSync(`latex -interaction=nonstopmode -halt-on-error --output-directory=${texFolder} ${texPath}`);
         child_process.execSync(`dvisvgm ${dviPath} -n -o ${svgPath}`);
     } catch (e) {
         res.status(500).send(`Internal server error: ${e}`);
